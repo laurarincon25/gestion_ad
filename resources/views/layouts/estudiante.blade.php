@@ -60,7 +60,7 @@
 		<!--TERCER CUADRO DND ESTA EL MENU DE OPCIONES-->
 		<ul class="nav menu">
 			<li class="active"><a href="perfilestudiante.html"><em class="fa fa-home">&nbsp;</em> Home</a></li>
-			<li><a href="widgets.html"><em class="fa fa-cart-plus">&nbsp;</em> Realizar Solicitud</a></li>
+			<li><a href="widgets.html"><em class="fa fa-shopping-cart">&nbsp;</em> Realizar Solicitud</a></li>
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Ver estado de la Solicitud</a></li>
 			<li><a href="elements.html"><em class="fa fa-plus">&nbsp;</em> Solicitar Programas</a></li>
 			<li><a href="panels.html"><em class="fa fa-comment">&nbsp;</em> Sugerencias &amp;  Quejas</a></li>
