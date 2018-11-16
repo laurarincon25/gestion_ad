@@ -26,4 +26,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('sugerencias','SugerenciaController');
 
-Route::get('/estudiante', 'EstudianteController@index')->name('estudiantes');
+Route::get('/estudiante', 'EstudianteController@index')->name('estudiante');
