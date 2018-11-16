@@ -43,7 +43,7 @@
 				<img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
 			</div>
 			<div class="profile-usertitle">
-				<div class="profile-usertitle-name">Laura Rincon</div>
+				<div class="profile-usertitle-name">{{ Auth::user()->name }}</div>
 				<div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
 			</div>
 			<div class="clear"></div>
@@ -65,7 +65,17 @@
 			<li><a href="elements.html"><em class="fa fa-plus">&nbsp;</em> Solicitar Programas</a></li>
 			<li><a href="panels.html"><em class="fa fa-comment">&nbsp;</em> Sugerencias &amp;  Quejas</a></li>
 			<li><a href="panels.html"><em class="fa fa-user">&nbsp;</em> Perfil</a></li>
-			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+
+			<li>
+			 <a class="fa fa-power-off" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                                            Logout
+              </a>
+ 				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+   						 {{ csrf_field() }}
+                 </form>
+             </li>
 		</ul>
 		<!--FIN DEL TERCER CUADRO-->
 	</div>
