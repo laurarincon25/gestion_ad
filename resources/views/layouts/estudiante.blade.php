@@ -59,7 +59,7 @@
 		<!--FIN DEL SEGUNDO CUADRO-->
 		<!--TERCER CUADRO DND ESTA EL MENU DE OPCIONES-->
 		<ul class="nav menu">
-			<li class="active"><a href="perfilestudiante.html"><em class="fa fa-home">&nbsp;</em> Home</a></li>
+			<li><a href="{{ route('estudiante') }}"><em class="fa fa-home">&nbsp;</em> Home</a></li>
 			<li><a href="widgets.html"><em class="fa fa-shopping-cart">&nbsp;</em> Realizar Solicitud</a></li>
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Ver estado de la Solicitud</a></li>
 			<li><a href="elements.html"><em class="fa fa-plus">&nbsp;</em> Solicitar Programas</a></li>
@@ -115,6 +115,7 @@
 <div class="col-sm-12">
 				<p class="back-link">Gestion AD <a href="https://www.medialoot.com">UCLA.EDU.VE</a></p>
 </div>
+
 
 <script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
