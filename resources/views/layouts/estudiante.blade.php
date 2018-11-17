@@ -3,9 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+
 	<title>{{ config('app.name', 'Admgestion') }}</title>
-	
+
 
 	<!-- Styles -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -28,7 +28,7 @@
 					<span class="icon-bar"></span></button>
 				<a class="navbar-brand" href="#"><span>Gestion</span>AD</a>
 				<ul class="nav navbar-top-links navbar-right">
-					
+
 				</ul>
 			</div>
 		</div>
@@ -59,11 +59,11 @@
 		<!--FIN DEL SEGUNDO CUADRO-->
 		<!--TERCER CUADRO DND ESTA EL MENU DE OPCIONES-->
 		<ul class="nav menu">
-			<li class="active"><a href="perfilestudiante.html"><em class="fa fa-home">&nbsp;</em> Home</a></li>
+			<li><a href="{{ route('estudiante') }}"><em class="fa fa-home">&nbsp;</em> Home</a></li>
 			<li><a href="widgets.html"><em class="fa fa-shopping-cart">&nbsp;</em> Realizar Solicitud</a></li>
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Ver estado de la Solicitud</a></li>
 			<li><a href="elements.html"><em class="fa fa-plus">&nbsp;</em> Solicitar Programas</a></li>
-			<li><a href="panels.html"><em class="fa fa-comment">&nbsp;</em> Sugerencias &amp;  Quejas</a></li>
+			<li><a href="{{ route('sugerencias.create') }}"><em class="fa fa-comment">&nbsp;</em> Sugerencias &amp;  Quejas</a></li>
 			<li><a href="panels.html"><em class="fa fa-user">&nbsp;</em> Perfil</a></li>
 
 			<li>
@@ -82,7 +82,7 @@
 	<!--FIN BARRA HORIZONTAL DE OPCIONES-->
 
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-		
+
         <!--BARRA HOME-->
 		<div class="row">
 			<ol class="breadcrumb">
@@ -115,6 +115,7 @@
 <div class="col-sm-12">
 				<p class="back-link">Gestion AD <a href="https://www.medialoot.com">UCLA.EDU.VE</a></p>
 </div>
+
 
 <script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
