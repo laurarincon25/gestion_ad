@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.estudiante')
 
-@section('title','Sugerencia create')
+@section('title','Sugerencias create')
 
 @section('content')
 
@@ -8,7 +8,7 @@
 
 <div class="form-group">
 {!! Form::label('descripcion','Descripción')!!}
-{!! Form::text('descripcion', null, ['class' =>'form-control'])!!}
+{!! Form::textarea('descripcion', null, ['class' =>'form-control'])!!}
 </div>
 
 {!!Form::submit('Guardar',['class' => 'btn btn-primary']) !!}

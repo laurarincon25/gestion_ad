@@ -23,7 +23,7 @@ class SugerenciaController extends Controller
      */
     public function create()
     {
-        return view('Sugerencia.create');
+        return view('Sugerencias.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class SugerenciaController extends Controller
         $sugerencia = new Sugerencia();
         $sugerencia->descripcion = $request->input('descripcion');
         $sugerencia->save();
-        return 'saved';
+        return redirect()->route('sugerencias.create');
     }
 
 /*$perso->name =$request->input('name');
