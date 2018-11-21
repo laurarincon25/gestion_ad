@@ -64,7 +64,7 @@
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Ver estado de la Solicitud</a></li>
 			<li><a href="elements.html"><em class="fa fa-plus">&nbsp;</em> Solicitar Programas</a></li>
 			<li><a href="{{ route('sugerencias.create') }}"><em class="fa fa-comment">&nbsp;</em> Sugerencias &amp;  Quejas</a></li>
-			<li><a href="panels.html"><em class="fa fa-user">&nbsp;</em> Perfil</a></li>
+			<li><a href="{{ route('perfil') }}"><em class="fa fa-user">&nbsp;</em> Perfil</a></li>
 
 			<li>
 			 <a class="fa fa-power-off" href="{{ route('logout') }}"
