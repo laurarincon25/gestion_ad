@@ -28,7 +28,7 @@
 				<!--LOGO INICIAL-->
 				<div class="col-xs-3 header-logo">
 					<br>
-					<a href="index.html"><img src="img/logo1.png" alt="" class="img-responsive logo">
+					<a href="index.html"><img src="img/logoprincipal.png" alt="" class="img-responsive logo">
 					</a>
 				</div>
 				<!--FIN DEL LOGO INICIAL-->
@@ -273,7 +273,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-6 footer-para">
-					<p>&copy;Copyright 2018 Empresa de Desarrollo │RIF J-222222-77 │Todos los Derechos Reservados.</p>
+					<p>&copy;Copyright 2018 Empresa de Desarrollo │Todos los Derechos Reservados.</p>
 				</div>
 				<div class="col-xs-6 text-right">
 					<a href=""><i class="fa fa-facebook"></i></a>
