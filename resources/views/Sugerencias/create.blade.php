@@ -11,7 +11,7 @@
                 {{ csrf_field() }}
 
                <div class= "form-group">
-                <label for="descripción">Descripción</label>
+                <label for="descripción">Descripciónes</label>
 
                               <textarea name="descripcion" id=descripcion rows= "4" cols="50" placeholder=" Escribe Aquí"class="form-control{{ $errors->has('descripcion') ? ' is-invalid' : '' }}" name="descripcion" value="{{ old('descripcion') }}" required autofocus></textarea>
 
