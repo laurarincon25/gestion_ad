@@ -13,7 +13,7 @@ class SugerenciaController extends Controller
      */
     public function index()
     {
-        return 'hola';
+       //
     }
 
     /**
@@ -37,15 +37,11 @@ class SugerenciaController extends Controller
         $sugerencia = new Sugerencia();
         $sugerencia->descripcion = $request->input('descripcion');
         $sugerencia->save();
-        return redirect()->route('sugerencias.create');
+        return redirect()->route('sugerencias.create', [$sugerencia])->with('status','Se ha enviado la sugerencia');
     }
 
-/*$perso->name =$request->input('name');
-        $perso->avatar=$name;
-        $perso->slug =$request->input('slug');
-        $perso->save();
 
-        return redirect()->route('pruebaregistros.index');*/
+
     /**
      * Display the specified resource.
      *
