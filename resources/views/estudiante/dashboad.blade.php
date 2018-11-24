@@ -18,7 +18,7 @@
 <!--BARRA PANEL DE SOLICITUD-->
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Panel de Solicitud</h1>
+				<h1 class="page-header">Panel de Solicitudes</h1>
 			</div>
 		</div>
 		
