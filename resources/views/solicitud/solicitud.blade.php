@@ -26,7 +26,10 @@
                         
                        
                           <div class="checkbox">
-                            <label><input type="checkbox" value="">Notas egresado <span class="badge">520 Bs</span></label>
+                             @foreach ($precios as $precio)
+                                  <label><input type="checkbox" value="">{{ $precio->documento }} <span class="badge">{{ $precio->precio }}Bs</span></label>
+                                @endforeach
+                            <!--<label><input type="checkbox" value="">Notas egresado <span class="badge">520 Bs</span></label>
                           </div>
                           <div class="checkbox">
                             <label><input type="checkbox" value="">Puesto y rango <span class="badge">120 Bs</span></label>
@@ -44,15 +47,21 @@
                             <label><input type="checkbox" value="">Carga horaria <span class="badge">710 Bs</span></label>
                           </div>
                            <div class="checkbox">
-                            <label><input type="checkbox" value="">Modalidad de estudio <span class="badge">370 Bs</span></label>
+                            <label><input type="checkbox" value="">Modalidad de estudio <span class="badge">370 Bs</span></label>-->
                           </div>
                          
                         <form action="{{ route('solicitud.create') }}" class="form-horizontal">
+                            {{ csrf_field() }}
+                            
+                           
+                                
+                               
                           <label> Correo:</label>
-                            <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+                            <input id="email" type="text" class="form-control" name="email" value="" placeholder="Email">
+                            <button type="submit" class="btn btn-success">Solicitar</button>
                         </form>
                         <br>
-                        <button type="submit" class="btn btn-success">Solicitar</button>
+                        
                         <a class="btn btn-info" href="/mailable" ></a>
                         <a class="btn btn-info" href="{{ route('solicitud.create') }}" ></a>
                     </div>

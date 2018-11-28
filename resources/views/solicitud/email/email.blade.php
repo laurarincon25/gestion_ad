@@ -1,12 +1,15 @@
 @component('mail::message')
-# Introduction
+# Solicitud de documentos UCLA
 
-The body of your message.
+Usted ha solicitado los siguientes documentos:
 
-@component('mail::button', ['url' => ''])
+
+
+<!-- @component('mail::button', ['url' => ''])
 Button Text
 @endcomponent
+!-->
 
-Thanks,<br>
+Gracias por usar nuestro servicio,<br>
 {{ config('app.name') }}
 @endcomponent

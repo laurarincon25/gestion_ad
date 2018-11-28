@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Mail\EmailSolicitud;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Precio;
 
 class SolicitudController extends Controller
 {
@@ -14,7 +15,8 @@ class SolicitudController extends Controller
      */
     public function index()
     {
-       return view('solicitud.solicitud');
+        $precios = Precio::all();
+       return view('solicitud.solicitud', ['precios'=> $precios]);
     }
 
     /**
@@ -22,10 +24,10 @@ class SolicitudController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $order="hola";
-        Mail::to('m2ikr23@gmail.com')->send(new EmailSolicitud($order));
+        Mail::to($request)->send(new EmailSolicitud($order));
     }
 
     /**

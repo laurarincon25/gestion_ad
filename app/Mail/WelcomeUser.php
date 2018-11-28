@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class EmailSolicitud extends Mailable
+class WelcomeUser extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -27,8 +27,10 @@ class EmailSolicitud extends Mailable
      * @return $this
      */
     public function build()
-    {
-        return $this->from('gestionaducla@gmail.com')
-                    ->markdown('solicitud.email.email');
+    {    
+         return $this->from('gestionaducla@gmail.com')
+                ->view('emails.welcome')
+                ->markdown('emails.welcome');
+    
     }
 }
