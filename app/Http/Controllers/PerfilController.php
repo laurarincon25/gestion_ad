@@ -1,25 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
- use App\PerfilE;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Perfil;
 
-class PerfilEController extends Controller
+class PerfilController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
-        return view('estudiante.perfil');
+       
     }
 
     /**
@@ -27,6 +22,11 @@ class PerfilEController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function create()
+    {
+        $user = Perfil::where('id', '2')->firstOrFail();
+        return view('estudiante.perfil', ['user' => $user]);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -34,13 +34,18 @@ class PerfilEController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function store(Request $request)
+    {
+        $perfil = new Perfil();
+        $perfil->name = $request->input('name');
+        $perfil->lastname = $request->input('lastname');
+        $perfil->address = $request->input('address');
+        $perfil->phone = $request->input('phone');
+        $perfil->biography = $request->input('biography');
+        $perfil->save();
+        return redirect()->route('perfil.create', [$perfil])->with('status','Se ha actualizado el perfil');
+    }
 
-/*$perso->name =$request->input('name');
-        $perso->avatar=$name;
-        $perso->slug =$request->input('slug');
-        $perso->save();
-
-        return redirect()->route('pruebaregistros.index');*/
     /**
      * Display the specified resource.
      *
