@@ -26,6 +26,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('sugerencias','SugerenciaController');
 
+
 Route::get('/estudiante', 'EstudianteController@index')->name('estudiante');
 
 Route::get('/perfil', 'PerfilEController@index')->name('perfil');
+
+
+Route::resource('solicitud','SolicitudController');
+Route::get('/mailable', function () {
+    $invoice;
+
+    return new App\Mail\EmailSolicitud();
+});
