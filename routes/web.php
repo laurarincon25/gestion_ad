@@ -24,7 +24,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('sugerencias','SugerenciaController');
+Route::resource('sugerencias','SugerenciaController')->middleware('auth');
 
 Route::get('/estudiante', 'EstudianteController@index')->name('estudiante');
 

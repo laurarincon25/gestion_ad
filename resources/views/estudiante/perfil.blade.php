@@ -18,7 +18,7 @@
 <!--PARTE CENTRAL CABECERA-->
 <div class="col-md-12">
 	<div class="col-md-12" style="border-width: 1px 1px 0px 1px; border-style: solid; border-color: lightgrey;">
-		<h3 style="text-align: center">Mi perfil <p><small>Añade informacion personal para compartir tu perfil</small></p></h3>	
+		<h3 style="text-align: center">Mi perfil <p><small>Añade informacion personal para compartir tu perfil</small></p></h3>
 	</div>
 <!--FIN PARTE CENTRAL CABECERA-->
 
@@ -46,8 +46,8 @@
 					<span id="alertTelefono" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">
 						<input type="text" class="form-control" id="txtTelefono" placeholder="Introduzca su telefono" required data-validation-required-message="Por favor introduzca su telefono.">
 					</span>
-					<p class="help-block"></p>	
-				</div>	
+					<p class="help-block"></p>
+				</div>
 			</div>
 			<div class="control-group form-group">
 				<div class="controls">
@@ -82,7 +82,7 @@
 				</div>
 			</div>
 		</div>
-	
+
 	<!--FIN DEL DIV CENTRAL PARTE DEL FORMULARIO INFORMACION BASICA-->
 	<!--BOTONES FORMULARIO-->
 	<div class="col-md-12 container allFormButtons">
@@ -95,13 +95,13 @@
 		<div class="col-md-5 col-md-offset-3">
 			<div class="form-group">
 				<button type="button" id="btnClean" class="btn btn-warning">Limpiar</button>
-				<button type="submit" id="btnEnviar" class="btn btn-primary">Actualizar</button>	
+				<button type="submit" id="btnEnviar" class="btn btn-primary">Actualizar</button>
 			</div>
 		</div>
-		&nbsp;	
+		&nbsp;
 	</div>
 	<!--FIN BOTONES FORMULARIO-->
-</form>	
+</form>
 <br>
 </div>
 

@@ -38,7 +38,7 @@
                     </div>
 
                 <button type="submit" class="btn btn-primary btn-success btn-block btn-signin" name="login" id="submit">Iniciar Sesión</button>
-                <button type="submit" class="btn btn-secondary btn-success btn-block btn-signin" name="login" id="submit">Cancelar</button>
+                <button type="button" class="btn btn-danger" name="login" id="cancelar" onclick= "self.location.href = '/' ">Cancelar</button>
             </form>
 
         </div>

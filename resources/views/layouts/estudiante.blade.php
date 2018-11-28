@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app()->getLocale() }}">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span></button>
-				<a class="navbar-brand" href="#"><span>Gestion</span>AD</a>
+				<a class="navbar-brand" href="{{ url('/') }}"><span>Gestion</span>AD</a>
 				<ul class="nav navbar-top-links navbar-right">
 
 				</ul>
@@ -38,10 +38,15 @@
     <!--BARRA HORIZONTAL DE OPCIONES-->
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<!--PRIMER CUADRO EN DND ESTA LA FOTO Y NOMBRE DEL USUARIO-->
+
+
+
 		<div class="profile-sidebar">
 			<div class="profile-userpic">
 				<img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
 			</div>
+
+
 			<div class="profile-usertitle">
 				<div class="profile-usertitle-name">{{ Auth::user()->name }}</div>
 				<div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
@@ -77,11 +82,13 @@
                  </form>
              </li>
 		</ul>
+
+
 		<!--FIN DEL TERCER CUADRO-->
 	</div>
 	<!--FIN BARRA HORIZONTAL DE OPCIONES-->
 
-	
+
 
         @yield('content')
 	</div>

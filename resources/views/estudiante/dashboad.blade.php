@@ -21,8 +21,8 @@
 				<h1 class="page-header">Panel de Solicitud</h1>
 			</div>
 		</div>
-		
-		
+
+
 			<div class="panel panel-container" >
 			<div class="row" >
 				<div class="col-xs-6" style="margin: 0px 0px 0px 10px"> 	<p class="text-justify">Ofrecemos nuestros servicios de solicitud de documentos academicos, consultar los estados de la solicitudes realizadas, solicitar programas de las diferentes carreras, sugerencias y quejas; con diseños atractivos y altos estándares de calidad, para un alcance mayor de los procesos fundamentales de la Direcciòn Administrativa.</p>
@@ -31,13 +31,19 @@
 					<div class="img-content">
 						<img class="img img-responsive img-small" height="300px"  src="{{ asset('img/background-pacfin5.jpg') }}" alt="image">
 					</div>
-					
+
 				</div>
 			</div>
-			
-		</div>	
-		
-		
+
+		</div>
+		<div class="panel-body">
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                </div>
+
 		<div class="panel panel-container">
 			<div class="row">
 				<!--SOLICITUD DE DOCUMENTOS-->

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,12 +23,12 @@
 
 	<header class="top-header">
 		<div class="container">
-            
+
 			<div class="row">
 				<!--LOGO INICIAL-->
 				<div class="col-xs-3 header-logo">
 					<br>
-					<a href="index.html"><img src="img/logoprincipal.png" alt="" class="img-responsive logo">
+					<a href="{{ url('/') }}"><img src="img/logoprincipal.png" alt="" class="img-responsive logo">
 					</a>
 				</div>
 				<!--FIN DEL LOGO INICIAL-->
@@ -47,14 +47,22 @@
 
                     <!--BARRA DE NAVEGACION-->
 					<div class="collapse navbar-collapse">
-					      
+
 					    <ul class="nav navbar-nav navbar-right">
-					      	<li class="active"><a href="index.html"><i class="fa fa-lg fa-home"></i></a></li>
+					      	<li class="active"><a href="{{ url('/') }}"><i class="fa fa-lg fa-home"></i></a></li>
 					        <li><a class="menu" href="#nosotros">Nosotros</a></li>
 					        <li><a class="menu" href="#servicios">Servicios</a></li>
 					        <li><a class="menu" href="#contact">Contáctenos</a></li>
-					        <li><a href="{{ route('login') }}" data-toggle="modal">Acceso</a></li>
+
+                            @if (Route::has('login'))
+					      @auth
+                            <li><a href="{{ url('/estudiante') }}" data-toggle="modal">Acceso</a>
+
+                                @else
+                            <li><a href="{{ route('login') }}" data-toggle="modal">Acceso</a></li>
 					        <li><a href="{{ route('register') }}" data-toggle="modal">Registrarse</a></li>
+					      @endauth
+					      @endif
 					    </ul>
 					</div>
 					<!--FIN DE BARRA DE NAVEGACION-->
@@ -101,7 +109,7 @@
 			            	<img src="img/imagen4.jpg" alt="">
 			                <div class="carousel-caption">
 		               			<!--<h1>MV WORLD</h1>
-		               			<p>servicio de alta calidad</p>-->	
+		               			<p>servicio de alta calidad</p>-->
 			                </div>
 			            </div>
 			        </div>
@@ -228,7 +236,7 @@
 						</div>
 					</div>
 				</div>
-	
+
 			</div>
 		</div>
 	</section>
@@ -261,7 +269,7 @@
 							<ul><li><i class="fa fa-envelope"></i><span>Email:</span> info@direccionadm.com</li></ul>
 						</div>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
