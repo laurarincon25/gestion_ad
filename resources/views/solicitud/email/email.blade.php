@@ -3,7 +3,7 @@
 
 Usted ha solicitado los siguientes documentos:
 
-
+Esto deberia ser la solicitud de documentos
 
 <!-- @component('mail::button', ['url' => ''])
 Button Text

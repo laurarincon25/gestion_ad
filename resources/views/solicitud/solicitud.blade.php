@@ -26,8 +26,8 @@
                         
                        
                           <div class="checkbox">
-                             @foreach ($precios as $precio)
-                                  <label><input type="checkbox" value="">{{ $precio->documento }} <span class="badge">{{ $precio->precio }}Bs</span></label>
+                             @foreach ($carrera as $carreras)
+                                  <label><input type="checkbox" value="">{{ $precio->documento }} <span class="badge">{{ $carrera->precio }}Bs</span></label>
                                 @endforeach
                             <!--<label><input type="checkbox" value="">Notas egresado <span class="badge">520 Bs</span></label>
                           </div>
