@@ -28,7 +28,8 @@
                                         <h4>{{$carrera->carrera}} {{$carrera->id}}</h4>
                                          @foreach($carrera->documentos as $documento)
                                             <label for="ch-{{$documento->id}}">{{$documento->Nombre}}</label>
-                                            <input id="ch-{{$documento->id}}" value="{{$documento->pivot->precio}}" name="{{$documento->Nombre}}" type="checkbox" onchange="onChecked('ch-{{$documento->id}}')"> {{$documento->pivot->precio}}
+                                            <input id="ch-{{$documento->id}}" value="{{$documento->pivot->precio}}" name="documento_{{$documento->id}}" type="checkbox" onchange="onChecked('ch-{{$documento->id}}')"> {{$documento->pivot->precio}}
+                                            
                                         @endforeach
 
                                     </div>

@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,10 +31,10 @@ Route::get('/estudiante', 'EstudianteController@index')->name('estudiante');
 
 
 Route::resource('solicitud','SolicitudController');
-Route::get('/mailable', function () {
-    $invoice;
+Route::get('/mailable', function (Request $request) {
 
-    return new App\Mail\EmailSolicitud();
+
+    return new App\Mail\EmailSolicitud($request);
 });
 
 Route::resource('servicio', 'ServicioController');
