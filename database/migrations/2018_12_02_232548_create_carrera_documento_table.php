@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePreciosTable extends Migration
+class CreateCarreraDocumentoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreatePreciosTable extends Migration
      */
     public function up()
     {
-        Schema::create('precios', function (Blueprint $table) {
-            $table->increments('id_prec');
-            $table->integer('carrera');
-            $table->integer('documento');
-            $table->float('precio',8,2);
+        Schema::create('carrera_documento', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('carrera_id');
+            $table->integer('documento_id');
+            $table->float('precio',8,2)->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreatePreciosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('precios');
+        Schema::dropIfExists('carrera_documento');
     }
 }

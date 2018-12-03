@@ -1,20 +1,15 @@
 <?php
 
 namespace App;
-
+use App\Documento;
 use Illuminate\Database\Eloquent\Model;
 
 class Carrera extends Model
 {
     //
-   public function precios()
+   public function documentos()
    {
-   		return $this->belongsToMany('App\Precio', 'id_car', 'id_prec', 'id_doc');
+   		return $this->belongsToMany('App\Documento')->withPivot('precio');
 
-   		$carrera = App\Carrera::find(1);
-
-   		foreach ($carrera => precios as $precio) {
-   			# code...
-   		}
    }
 }

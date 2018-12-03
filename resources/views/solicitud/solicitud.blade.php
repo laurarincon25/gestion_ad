@@ -13,41 +13,25 @@
                          <div class="form-group">
                           <label for="sel1">Seleccione la carrera:</label>
                           <select class="form-control" id="sel1">
-                
-                            <option>Ingeniería Informática</option>
-                            <option>Ingeniería Producción</option>
-                            <option>Ingeniería Telemática</option>
-                            <option>Análisis de Sistema</option>
-                            <option>Licenciatura en matemática</option>
-                            <option>Licenciatura en Física</option>
+                                @foreach($carreras as $carreras)
+                                <option value="$carrera->id"> {{$carrera->carrera}} </option>
+                                @endforeach
                           </select>
                         </div>
                        
                         
                        
                           <div class="checkbox">
-                             @foreach ($carrera as $carreras)
-                                  <label><input type="checkbox" value="">{{ $precio->documento }} <span class="badge">{{ $carrera->precio }}Bs</span></label>
+                          
+                                    @foreach($carreras->documentos as $documento)
+                                        
+                                        <p>el documentos es :{{$documento->pivot->precio}}</p>
+
+                            
                                 @endforeach
-                            <!--<label><input type="checkbox" value="">Notas egresado <span class="badge">520 Bs</span></label>
-                          </div>
-                          <div class="checkbox">
-                            <label><input type="checkbox" value="">Puesto y rango <span class="badge">120 Bs</span></label>
-                          </div>
-                          <div class="checkbox">
-                            <label><input type="checkbox" value="">Buena conducta egresado <span class="badge">100 Bs</span></label>
-                          </div>
-                          <div class="checkbox">
-                            <label><input type="checkbox" value="">Constancia especial <span class="badge">300 Bs</span></label>
-                          </div>
-                          <div class="checkbox">
-                            <label><input type="checkbox" value="">Pensum <span class="badge">800 Bs</span></label>
-                          </div>
-                           <div class="checkbox">
-                            <label><input type="checkbox" value="">Carga horaria <span class="badge">710 Bs</span></label>
-                          </div>
-                           <div class="checkbox">
-                            <label><input type="checkbox" value="">Modalidad de estudio <span class="badge">370 Bs</span></label>-->
+
+                                 
+                  
                           </div>
                          
                         <form action="{{ route('solicitud.create') }}" class="form-horizontal">

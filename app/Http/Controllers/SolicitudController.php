@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Mail\EmailSolicitud;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Carrera;
+use App\Documento;
 use App\Precio;
 
 class SolicitudController extends Controller
@@ -15,8 +17,9 @@ class SolicitudController extends Controller
      */
     public function index()
     {
-        $precios = Precio::all();
-       return view('solicitud.solicitud', ['precios'=> $precios]);
+        $carreras  = Carrera::all();
+        $seleted = 0; 
+       return view('solicitud.solicitud', ['carreras'=> $carreras, 'selected' => $seleted]);
     }
 
     /**
