@@ -36,6 +36,9 @@ Route::get('/mailable', function () {
 
     return new App\Mail\EmailSolicitud();
 });
+
+Route::resource('servicio', 'ServicioController');
+
 Route::resource('perfil', 'PerfilController');
 
 Route::get('foo', function () {

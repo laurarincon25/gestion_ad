@@ -9,6 +9,7 @@ Esto deberia ser la solicitud de documentos
 Button Text
 @endcomponent
 !-->
+{{$documentos}}
 
 Gracias por usar nuestro servicio,<br>
 {{ config('app.name') }}

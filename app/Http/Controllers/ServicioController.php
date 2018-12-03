@@ -1,25 +1,25 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Mail\EmailSolicitud;
+ use App\Servicio;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
-use App\Carrera;
-use App\Documento;
-use App\Precio;
 
-class SolicitudController extends Controller
+class ServicioController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+       
+    }
+
     public function index()
     {
-        $carreras  = Carrera::all();
-        $selected = 0; 
-       return view('solicitud.solicitud', ['carreras'=> $carreras, 'selected' => $selected]);
+       
     }
 
     /**
@@ -27,11 +27,6 @@ class SolicitudController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
-    {
-        $notas = Carrera::all();
-        Mail::to($request->email)->send(new EmailSolicitud($request));
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -39,11 +34,13 @@ class SolicitudController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
 
+/*$perso->name =$request->input('name');
+        $perso->avatar=$name;
+        $perso->slug =$request->input('slug');
+        $perso->save();
+
+        return redirect()->route('pruebaregistros.index');*/
     /**
      * Display the specified resource.
      *
@@ -78,19 +75,14 @@ class SolicitudController extends Controller
         //
     }
 
-       /**
-     * Update the specified resource in storage.
+    /**
+     * Remove the specified resource from storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function ship(Request $request)
+    public function destroy($id)
     {
-       // $order = Order::findOrFail($orderId);
-
-        // Ship order...
-
-       
+        //
     }
 }
