@@ -11,9 +11,17 @@ class SugerenciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-       //
+
+        return view('Sugerencias.create');
     }
 
     /**
@@ -23,6 +31,8 @@ class SugerenciaController extends Controller
      */
     public function create()
     {
+
+
         return view('Sugerencias.create');
     }
 
@@ -36,6 +46,7 @@ class SugerenciaController extends Controller
     {
         $sugerencia = new Sugerencia();
         $sugerencia->descripcion = $request->input('descripcion');
+        $sugerencia['user_id']=\Auth::user()->id;
         $sugerencia->save();
         return redirect()->route('sugerencias.create', [$sugerencia])->with('status','Se ha enviado la sugerencia');
     }

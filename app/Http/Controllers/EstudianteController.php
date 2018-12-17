@@ -17,8 +17,10 @@ class EstudianteController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
+      $request->user()->authorizeRoles(['user', 'admin','docente','trabajadoradm']);
+
         return view('estudiante.dashboad');
     }
 
@@ -35,12 +37,7 @@ class EstudianteController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-/*$perso->name =$request->input('name');
-        $perso->avatar=$name;
-        $perso->slug =$request->input('slug');
-        $perso->save();
 
-        return redirect()->route('pruebaregistros.index');*/
     /**
      * Display the specified resource.
      *

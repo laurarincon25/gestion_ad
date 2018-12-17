@@ -56,7 +56,7 @@
 
                             @if (Route::has('login'))
 					      @auth
-                            <li><a href="{{ url('/estudiante') }}" data-toggle="modal">Acceso</a>
+                            <li><a href="{{ url('/estudiante') }}" data-toggle="modal">Volver</a>
 
                                 @else
                             <li><a href="{{ route('login') }}" data-toggle="modal">Acceso</a></li>
@@ -135,7 +135,7 @@
 		<div class="container">
 			<div class="row">
 				<h2>Nosotros</h2>
-				<h4>En esta categoría se agrupan las asignaturas de los Programas Académicos: Análisis de Sistema,  Ingeniería en Informática, Ingeniería de Producción, Licenciatura en Matemática, Ingeniería Telemática y Licenciatura en Física</h4>
+				<h4>Conoce un poco sobre nuestra labor en el Decanato de Ciencias y Tecnología  </h4>
 
 				<div class="col-md-4 col-sm-6">
 					<div class="single-about-detail clearfix">
@@ -144,10 +144,10 @@
 						</div>
 						<div class="about-details">
 							<div class="pentagon-text">
-								<h1>I</h1>
+								<h1>M</h1>
 							</div>
-							<h3>Informatica</h3>
-							<p>El profesional egresado de esta carrera se caracteriza por el manejo de los recursos informáticos e instrumenta, analiza y diseña sistemas de información que permitirán el desarrollo integral de la organización. Desarrolla distintos tipos de estructuras lógicas para solucionar problemas con el uso de la computadora, maneja diferentes lenguajes de computación y usa técnicas y disciplinas afines a los sistemas de información, tales como, los aspectos administrativos, organizativos, estadísticos y control de proyectos</p>
+							<h3>Misión</h3>
+							<p>Administrar los recursos presupuestarios y financieros del Decanato, desarrollando estrategias que permitan cumplir con las leyes, normas, reglamentos y procedimientos vigentes en la institución, a fin de contribuir a la racionalización y optimización de los recursos humanos, materiales y financieros.</p>
 						</div>
 					</div>
 				</div>
@@ -159,10 +159,10 @@
 						</div>
 						<div class="about-details">
 							<div class="pentagon-text">
-								<h1>P</h1>
+								<h1>V</h1>
 							</div>
-							<h3>Produccion</h3>
-							<p>El  Ingeniero de producción es un profesional que aplica sus conocimientos en la optimización de la producción de bienes y servicios y hace uso de su experticia para crear o mejorar todo tipo de sistemas</p>
+							<h3>Visión</h3>
+							<p>Ser la unidad administrativa por excelencia, con elevada calidad de servicio para garantizar una gerencia que asegure el funcionamiento académico administrativo del Decanato.</p>
 						</div>
 					</div>
 				</div>
@@ -174,10 +174,10 @@
 						</div>
 						<div class="about-details">
 							<div class="pentagon-text">
-								<h1>A</h1>
+								<h1>O</h1>
 							</div>
-							<h3>Analisis</h3>
-							<p>Formar un profesional capaz de planificar, elaborar y coordinar los procedimientos automáticos y /o manuales asociados a los sistemas. Asimismo, definir en combinación con la gerencia las necesidades de información de una organización administrativa; estudiar la factibilidad técnico-económica de las alternativas que satisfacen estas necesidades y evaluar el costo-efectividad de los recursos humanos, máquinas y técnicas empleadas.</p>
+							<h3>Objetivo General</h3>
+							<p>Administrar de forma eficiente los recursos financieros, personal humano y equipos pertenecientes a la institución. Atendiendo y dando respuesta a todas las solicitudes realizadas por los usuarios con la finalidad de prestar un servicio de primera o solventar un problema de manera eficiente.</p>
 						</div>
 					</div>
 				</div>

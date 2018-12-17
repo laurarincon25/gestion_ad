@@ -35,12 +35,7 @@ class PerfilEController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-/*$perso->name =$request->input('name');
-        $perso->avatar=$name;
-        $perso->slug =$request->input('slug');
-        $perso->save();
 
-        return redirect()->route('pruebaregistros.index');*/
     /**
      * Display the specified resource.
      *
