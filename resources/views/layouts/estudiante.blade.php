@@ -111,10 +111,8 @@
 	<!--FIN BARRA HORIZONTAL DE OPCIONES-->
 
 
-
         @yield('content')
 	</div>
-
 
 
 
@@ -122,7 +120,6 @@
 <div class="col-sm-12">
 				<p class="back-link">Gestion AD <a href="https://www.medialoot.com">UCLA.EDU.VE</a></p>
 </div>
-
 
 <script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

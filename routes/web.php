@@ -29,3 +29,6 @@ Route::resource('sugerencias','SugerenciaController')->middleware('auth');
 Route::get('/estudiante', 'EstudianteController@index')->name('estudiante');
 
 Route::get('/perfil', 'PerfilEController@index')->name('perfil');
+Route::resource('programa','ProgramaController');
+//Route::post('/programa','ProgramaController@store');
+//Route::get('/programa', 'ProgramaController@index')->name('programa');

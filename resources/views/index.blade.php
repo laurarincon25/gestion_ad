@@ -23,7 +23,6 @@
 
 	<header class="top-header">
 		<div class="container">
-
 			<div class="row">
 				<!--LOGO INICIAL-->
 				<div class="col-xs-3 header-logo">
@@ -236,7 +235,6 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</section>
@@ -269,7 +267,6 @@
 							<ul><li><i class="fa fa-envelope"></i><span>Email:</span> info@direccionadm.com</li></ul>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>

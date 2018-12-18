@@ -37,7 +37,6 @@ class EstudianteController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
     /**
      * Display the specified resource.
      *

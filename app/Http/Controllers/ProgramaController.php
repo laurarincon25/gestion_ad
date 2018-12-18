@@ -1,27 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
- use App\Sugerencia;
 use Illuminate\Http\Request;
+use App\Programa;
 
-class SugerenciaController extends Controller
+class ProgramaController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
-
-        return view('Sugerencias.create');
+        return view('programa.programa');
     }
 
     /**
@@ -29,9 +22,9 @@ class SugerenciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+  public function create()
     {
-        return view('Sugerencias.create');
+      //  return view('programa.create');
     }
 
     /**
@@ -42,14 +35,18 @@ class SugerenciaController extends Controller
      */
     public function store(Request $request)
     {
-        $sugerencia = new Sugerencia();
-        $sugerencia->descripcion = $request->input('descripcion');
-        $sugerencia['user_id']=\Auth::user()->id;
-        $sugerencia->save();
-        return redirect()->route('sugerencias.create', [$sugerencia])->with('status','Se ha enviado la sugerencia');
+
+        $programa = new Programa();
+        $programa->carrera = $request->input('carrera');
+        $programa->pensum = $request->input('pensum');
+        $programa->descripcion = $request->input('descripcion');
+        $programa->nrotelefono = $request->input('nrotlf');
+        $programa->email = $request->input('email');
+        $programa->save();
+
+        return redirect()->route('programa.index');
+
     }
-
-
 
     /**
      * Display the specified resource.
