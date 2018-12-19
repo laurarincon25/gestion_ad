@@ -1,12 +1,30 @@
 @extends('layouts.estudiante')
 
 @section('content')
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
-<div class="container">
+        <!--BARRA HOME-->
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#">
+					<em class="fa fa-home"></em>
+				</a></li>
+				<li class="active">Home</li>
+			</ol>
+		</div>
 
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-default">
+        <div class="panel-body">
+
+       
+          @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+
+         @endif
+
+        </div>
+            <div class="panel panel-default" style="padding:30px">
                 <div class="panel-heading">Solicitud de Programas Academicos</div>
 
                     <div class="">
@@ -65,21 +83,8 @@
 
 
                     </div>
-                </form>
-
-                    <div class="panel-body">
-
-    //para efecto de enviar un mensaje con el id unico
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-
-                    @endif
-
+                 </form>
                 </div>
             </div>
-        </div>
-    </div>
 </div>
 @endsection

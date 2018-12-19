@@ -74,16 +74,16 @@
 			<li><a href="{{ route('estudiante') }}"><em class="fa fa-home">&nbsp;</em> Home</a></li>
 			<li><a href="{{ route('solicitud.index') }}"><em class="fa fa-shopping-cart">&nbsp;</em> Realizar Solicitud</a></li>
 			<li><a href="{{ route('solicitud.index') }}"><em class="fa fa-bar-chart">&nbsp;</em> Ver estado de la Solicitud</a></li>
-			<li><a href="#"><em class="fa fa-plus">&nbsp;</em> Solicitar Programas</a></li>
+			<li><a href="{{ route('programa.index') }}"><em class="fa fa-plus">&nbsp;</em> Solicitar Programas</a></li>
 			<li><a href="{{ route('sugerencias.create') }}"><em class="fa fa-comment">&nbsp;</em> Sugerencias &amp;  Quejas</a></li>
-			<li><a href="{{ route('perfil') }}"><em class="fa fa-user">&nbsp;</em> Perfil</a></li>
+			<li><a href="{{ route('perfil.create') }}"><em class="fa fa-user">&nbsp;</em> Perfil</a></li>
 @elseif(Auth::user()->hasRole('docente'))
             <div>Acceso como Docente</div>
             <li><a href="{{ route('estudiante') }}"><em class="fa fa-home">&nbsp;</em> Home</a></li>
 			<li><a href="widgets.html"><em class="fa fa-shopping-cart">&nbsp;</em>Solicitud Servicio</a></li>
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Ver estado de la Solicitud</a></li>
 			<li><a href="{{ route('sugerencias.create') }}"><em class="fa fa-comment">&nbsp;</em> Sugerencias &amp;  Quejas</a></li>
-			<li><a href="{{ route('perfil') }}"><em class="fa fa-user">&nbsp;</em> Perfil</a></li>
+			<li><a href="{{ route('perfil.create') }}"><em class="fa fa-user">&nbsp;</em> Perfil</a></li>
 @else
             <div>Acceso como Trabajador Administrativo</div>
             <li><a href="{{ route('estudiante') }}"><em class="fa fa-home">&nbsp;</em> Home</a></li>

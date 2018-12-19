@@ -36,7 +36,7 @@
 					<label>Informaciòn bàsica</label>
 					
 					<span id="alertNombre" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">
-						<input type="text"class="form-control" name="name" value="{{ $user->name }}"  id="txtNombre" placeholder="Introduzca su nombre" required data-validation-required-message="Por favor introduzca su nombre.">
+						<input type="text"class="form-control" name="name" value="{{ old('firstname') }}"  id="txtNombre" placeholder="Introduzca su nombre" required data-validation-required-message="Por favor introduzca su nombre.">
 					</span>
 					<br>
 					<span id="alertApellido" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">

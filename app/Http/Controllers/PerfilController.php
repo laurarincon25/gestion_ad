@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Perfil;
 
@@ -24,8 +25,10 @@ class PerfilController extends Controller
      */
     public function create()
     {
-        $user = Perfil::where('id', '2')->firstOrFail();
-        return view('estudiante.perfil', ['user' => $user]);
+        $userId = Auth::user()->id;
+       // $user = Perfil::where('id', $userId);
+        
+        return view('estudiante.perfil');
     }
 
     /**

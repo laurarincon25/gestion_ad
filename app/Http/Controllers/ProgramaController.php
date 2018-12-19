@@ -44,7 +44,7 @@ class ProgramaController extends Controller
         $programa->email = $request->input('email');
         $programa->save();
 
-        return redirect()->route('programa.index');
+        return redirect()->route('programa.index')->with('status','Se ha enviado la solicitud');
 
     }
 
