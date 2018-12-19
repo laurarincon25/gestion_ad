@@ -25,10 +25,11 @@
                             
                             @foreach($carreras as $carrera)
                                     <div class="checkbox-content" id="{{$carrera->id}}" style="display: none;">
-                                        <h4>{{$carrera->carrera}} {{$carrera->id}}</h4>
                                          @foreach($carrera->documentos as $documento)
-                                            <label for="ch-{{$documento->id}}">{{$documento->Nombre}}</label>
-                                            <input id="ch-{{$documento->id}}" value="{{$documento->pivot->precio}}" name="documento_{{$documento->id}}" type="checkbox" onchange="onChecked('ch-{{$documento->id}}')"> {{$documento->pivot->precio}}
+                                         <div class="check">
+                                            <label for="ch-{{$documento->id}}">{{$documento->Nombre}}</label> <input id="ch-{{$documento->id}}" value="{{$documento->pivot->precio}}" name="documento_{{$documento->id}}" type="checkbox" onchange="onChecked('ch-{{$documento->id}}')"> 
+                                            <span class="badge">{{$documento->pivot->precio}}</span></div>
+                                           
                                             
                                         @endforeach
 
@@ -42,11 +43,8 @@
                           <label> Correo:</label>
                             <input id="email" type="text" class="form-control" name="email" value="" placeholder="Email">
                             <button type="submit" class="btn btn-success">Solicitar</button>
+    
                         </form>
-                        <br>
-                        
-                        <a class="btn btn-info" href="/mailable" ></a>
-                        <a class="btn btn-info" href="{{ route('solicitud.create') }}" ></a>
                     </div>
 
                 <div class="panel-body">

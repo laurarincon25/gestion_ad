@@ -44,3 +44,7 @@ Route::resource('perfil', 'PerfilController');
 Route::get('foo', function () {
     return 'Hello World';
 });
+
+Route::get('uuid', function() {
+	echo Uuid::generate()->string;
+});
