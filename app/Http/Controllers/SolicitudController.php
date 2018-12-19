@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 use App\Mail\EmailSolicitud;
+use Webpatser\Uuid\Uuid;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Carrera;
 use App\Documento;
 use App\Precio;
+use App\Solicitud;
 
 class SolicitudController extends Controller
 {
@@ -29,8 +31,10 @@ class SolicitudController extends Controller
      */
     public function create(Request $request)
     {
-        $notas = Carrera::all();
+        $this->store($request);
         Mail::to($request->email)->send(new EmailSolicitud($request));
+        return redirect()->route('solicitud.index')->with('status','Se ha enviado la solicitud');
+
     }
 
     /**
@@ -41,7 +45,22 @@ class SolicitudController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $userId = $request['user'];
+        $documento1 = substr($request['1'], 0 , strrpos($request['1'], "-"));
+        $documento2 = substr($request['2'], 0 , strrpos($request['2'], "-"));
+        $documento3 = substr($request['3'], 0 , strrpos($request['3'], "-")); 
+        $documento4 = substr($request['4'], 0 , strrpos($request['4'], "-")); 
+        $documento5 = substr($request['5'], 0 , strrpos($request['5'], "-")); 
+        $documento6 = substr($request['6'], 0 , strrpos($request['6'], "-")); 
+        $documento7 = substr($request['7'], 0 , strrpos($request['7'], "-")); 
+        $documentos = [$documento1, $documento2, $documento3, $documento4, $documento5, $documento6, $documento7];
+        echo json_encode($documentos);
+        $solicitud = new Solicitud();
+        $solicitud->users_id = $userId;
+        $solicitud->uuid= Uuid::generate()->string;
+        $solicitud->documentos = json_encode($documentos);
+        $solicitud->save();
+
     }
 
     /**

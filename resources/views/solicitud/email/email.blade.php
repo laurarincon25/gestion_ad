@@ -11,42 +11,43 @@ Button Text
 
 <div >
 <ul class="list-group">
+
 <!-- Por ahora un if para cada documento, si viene en el request (si es seleccionado por el usuario)
     se mostrará-->
-@if($documentos->documento_1)
+@if($documentos['1'])
+
 <li class="list-group-item">
-<H3>Notas egresado</H3> <H4> costo: </H4> <span>{{$documentos->documento_1}}</span>
+<H3>{{substr($documentos['1'], 0 , strrpos($documentos['1'], "-"))}}</H3> <H4> costo: </H4> <span>{{substr(strrchr($documentos['1'], "-"), 1)}}</span>
 </li>
 @endif
-@if($documentos->documento_2)
+@if($documentos['2'])
 <li class="list-group-item">
-<H3>Puesto y rango</H3> <H4> costo: </H4> <span>{{$documentos->documento_2}}</span>
+<H3>{{substr($documentos['2'], 0 , strrpos($documentos['2'], "-"))}}</H3> <H4> costo: </H4><span>{{substr(strrchr($documentos['2'], "-"), 1)}}</span>
 </li>
 @endif
-@if($documentos->documento_3)
+@if($documentos['3'])
 <li class="list-group-item">
-<H3>Buena conducta egresado</H3> <H4> costo: </H4> <span>{{$documentos->documento_3}}</span>
+<H3>{{substr($documentos['3'], 0 , strrpos($documentos['3'], "-"))}}</H3> <H4> costo: </H4><span>{{substr(strrchr($documentos['3'], "-"), 1)}}</span>
 </li>
 @endif
-@if($documentos->documento_4)
+@if($documentos['4'])
 <li class="list-group-item">
-<H3>Constancia especial</H3> <H4> costo: </H4> <span>{{$documentos->documento_4}}</span>
+<<H3>{{substr($documentos['4'], 0 , strrpos($documentos['4'], "-"))}}</H3> <H4> costo: </H4> <span>{{substr(strrchr($documentos['4'], "-"), 1)}}</span>
 </li>
 @endif
-@if($documentos->documento_5)
+@if($documentos['5'])
 <li class="list-group-item">
-<H3>Pensum</H3> <H4> costo: </H4> <span>{{$documentos->documento_5}}</span>
+<H3>{{substr($documentos['5'], 0 , strrpos($documentos['5'], "-"))}}</H3><H4> costo: </H4> <span>{{substr(strrchr($documentos['5'], "-"), 1)}}</span>
 </li>
 @endif
-@if($documentos->documento_6)
+@if($documentos['6'])
 <li class="list-group-item">
-<H3>Carga horaria</H3> <H4> costo: </H4> <span>{{$documentos->documento_6}}</span>
+<H3>{{substr($documentos['6'], 0 , strrpos($documentos['6'], "-"))}}</H3> <H4> costo: </H4> <span>{{substr(strrchr($documentos['6'], "-"), 1)}}</span>
 </li>
 @endif
-@if($documentos->documento_7)
+@if($documentos['7'])
 <li class="list-group-item">
-<H3>Modalidad de estudio</H3> <H4> costo: </H4> <span>{{$documentos->documento_7}}</span>
-</li>
+<H3>{{substr($documentos['7'], 0 , strrpos($documentos['7'], "-"))}}</H3> <H4> costo: </H4> <span>{{substr(strrchr($documentos['7'], "-"), 1)}}</span>
 @endif
 
 </ul>
