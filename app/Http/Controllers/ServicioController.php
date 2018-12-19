@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
- use App\PerfilE;
+ use App\Servicio;
 use Illuminate\Http\Request;
 
-class PerfilEController extends Controller
+class ServicioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +14,12 @@ class PerfilEController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+       
     }
 
     public function index()
     {
-        return view('estudiante.perfil');
+       
     }
 
     /**

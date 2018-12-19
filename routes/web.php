@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,9 +26,28 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('sugerencias','SugerenciaController')->middleware('auth');
 
+
 Route::get('/estudiante', 'EstudianteController@index')->name('estudiante');
 
-Route::get('/perfil', 'PerfilEController@index')->name('perfil');
 Route::resource('programa','ProgramaController');
 //Route::post('/programa','ProgramaController@store');
 //Route::get('/programa', 'ProgramaController@index')->name('programa');
+
+Route::resource('solicitud','SolicitudController');
+Route::get('/mailable', function (Request $request) {
+
+
+    return new App\Mail\EmailSolicitud($request);
+});
+
+Route::resource('servicio', 'ServicioController');
+
+Route::resource('perfil', 'PerfilController');
+
+Route::get('foo', function () {
+    return 'Hello World';
+});
+
+Route::get('uuid', function() {
+	echo Uuid::generate()->string;
+});
