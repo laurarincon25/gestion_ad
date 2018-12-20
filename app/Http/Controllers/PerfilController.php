@@ -1,27 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
- use App\Sugerencia;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Perfil;
 
-class SugerenciaController extends Controller
+class PerfilController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
-
-        return view('Sugerencias.create');
+       
     }
 
     /**
@@ -31,7 +25,10 @@ class SugerenciaController extends Controller
      */
     public function create()
     {
-        return view('Sugerencias.create');
+        $userId = Auth::user()->id;
+       // $user = Perfil::where('id', $userId);
+        
+        return view('estudiante.perfil');
     }
 
     /**
@@ -42,14 +39,15 @@ class SugerenciaController extends Controller
      */
     public function store(Request $request)
     {
-        $sugerencia = new Sugerencia();
-        $sugerencia->descripcion = $request->input('descripcion');
-        $sugerencia['user_id']=\Auth::user()->id;
-        $sugerencia->save();
-        return redirect()->route('sugerencias.create', [$sugerencia])->with('status','Se ha enviado la sugerencia');
+        $perfil = new Perfil();
+        $perfil->name = $request->input('name');
+        $perfil->lastname = $request->input('lastname');
+        $perfil->address = $request->input('address');
+        $perfil->phone = $request->input('phone');
+        $perfil->biography = $request->input('biography');
+        $perfil->save();
+        return redirect()->route('perfil.create', [$perfil])->with('status','Se ha actualizado el perfil');
     }
-
-
 
     /**
      * Display the specified resource.

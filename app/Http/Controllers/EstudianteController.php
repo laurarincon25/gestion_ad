@@ -18,8 +18,9 @@ class EstudianteController extends Controller
     }
 
     public function index(Request $request)
-    {
-      $request->user()->authorizeRoles(['user', 'admin','docente','trabajadoradm']);
+    { 
+        
+    $request->user()->authorizeRoles(['user', 'admin','docente','trabajadoradm']);
 
         return view('estudiante.dashboad');
     }
@@ -36,7 +37,6 @@ class EstudianteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
 
     /**
      * Display the specified resource.
