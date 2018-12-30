@@ -18,6 +18,7 @@ class CreateSolicitudsTable extends Migration
             $table->uuid('uuid');
             $table->integer('users_id');
             $table->json('documentos');
+            $table->integer('status');
             $table->timestamps();
         });
     }

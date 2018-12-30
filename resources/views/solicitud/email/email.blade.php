@@ -1,6 +1,9 @@
 @component('mail::message')
 # Solicitud de documentos UCLA
 
+Código de la solicitud:
+{{ $uuid->uuid }}
+
 Usted ha solicitado los siguientes documentos:
 
 
