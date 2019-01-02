@@ -17,10 +17,19 @@ class SolicitudController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+
+    public function __construct()
     {
+        $this->middleware('auth');
+    }
+
+
+    public function index(Request $request)
+    {
+        $request->user()->authorizeRoles(['user', 'admin']);
         $carreras  = Carrera::all();
-        $selected = 0; 
+        $selected = 0;
        return view('solicitud.solicitud', ['carreras'=> $carreras, 'selected' => $selected]);
     }
 
@@ -48,11 +57,11 @@ class SolicitudController extends Controller
         $userId = $request['user'];
         $documento1 = substr($request['1'], 0 , strrpos($request['1'], "-"));
         $documento2 = substr($request['2'], 0 , strrpos($request['2'], "-"));
-        $documento3 = substr($request['3'], 0 , strrpos($request['3'], "-")); 
-        $documento4 = substr($request['4'], 0 , strrpos($request['4'], "-")); 
-        $documento5 = substr($request['5'], 0 , strrpos($request['5'], "-")); 
-        $documento6 = substr($request['6'], 0 , strrpos($request['6'], "-")); 
-        $documento7 = substr($request['7'], 0 , strrpos($request['7'], "-")); 
+        $documento3 = substr($request['3'], 0 , strrpos($request['3'], "-"));
+        $documento4 = substr($request['4'], 0 , strrpos($request['4'], "-"));
+        $documento5 = substr($request['5'], 0 , strrpos($request['5'], "-"));
+        $documento6 = substr($request['6'], 0 , strrpos($request['6'], "-"));
+        $documento7 = substr($request['7'], 0 , strrpos($request['7'], "-"));
         $documentos = [$documento1, $documento2, $documento3, $documento4, $documento5, $documento6, $documento7];
         echo json_encode($documentos);
         $solicitud = new Solicitud();
@@ -110,6 +119,6 @@ class SolicitudController extends Controller
 
         // Ship order...
 
-       
+
     }
 }
