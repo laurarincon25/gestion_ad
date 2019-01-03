@@ -10,4 +10,10 @@ class Solicitud extends Model
 		'uuid',
 	];
     //
+
+
+    public function pagos()
+{
+    return $this->hasMany(Pago::class, 'uuidSoli','uuid');
+}
 }

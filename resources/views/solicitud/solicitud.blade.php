@@ -7,9 +7,9 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#">
-					<em class="fa fa-home"></em>
+					<em class="fa fa-shopping-cart"></em>
 				</a></li>
-				<li class="active">Home</li>
+				<li class="active">Solicitud de documentos</li>
 			</ol>
 		</div>
 		<!--FIN BARRA HOME-->
@@ -38,29 +38,29 @@
                                 <option value="carrera_{{$carrera->id}}"> {{$carrera->carrera}} </option>
                                 @endforeach
                           </select>
-                         
+
                         <form action="{{ route('solicitud.create') }}" class="form-horizontal">
                             {{ csrf_field() }}
-                            
+
                             @foreach($carreras as $carrera)
                                     <div class="checkbox-content" id="carrera_{{$carrera->id}}" style="display: none;">
                                          @foreach($carrera->documentos as $documento)
                                          <div class="check">
-                                            <label for="ch-{{$documento->id}}" name="documento_{{$documento->id}}">{{$documento->Nombre}}</label> <input id="ch-{{$documento->id}}" value="{{$documento->Nombre}}-{{$documento->pivot->precio}}" name="{{$documento->id}}" type="checkbox" onchange="onChecked('ch-{{$documento->id}}')"> 
+                                            <label for="ch-{{$documento->id}}" name="documento_{{$documento->id}}">{{$documento->Nombre}}</label> <input id="ch-{{$documento->id}}" value="{{$documento->Nombre}}-{{$documento->pivot->precio}}" name="{{$documento->id}}" type="checkbox" onchange="onChecked('ch-{{$documento->id}}')">
                                             <span class="badge">{{$documento->pivot->precio}} Bs</span></div>
-                                            
+
                                         @endforeach
                                     </div>
-                               
-            
+
+
                             @endforeach
-                           
+
                          <input type ="hidden" name="user" value="{{ Auth::user()->id }}" >
-                               
+
                           <label> Correo:</label>
                             <input id="email" type="text" class="form-control" name="email" value="" placeholder="Email">
                             <button type="submit" class="btn btn-success">Solicitar</button>
-    
+
                         </form>
                     </div>
             </div>
@@ -99,7 +99,7 @@
         console.log(id);
         var checkbox = document.getElementById(id);
         var precio = checkbox.value;
-        
+
         console.log('checkbox',checkbox,'precio',precio);
     }
 </script>

@@ -33,12 +33,18 @@ Route::resource('programa','ProgramaController');
 //Route::post('/programa','ProgramaController@store');
 //Route::get('/programa', 'ProgramaController@index')->name('programa');
 
-Route::resource('solicitud','SolicitudController');
+Route::resource('solicitud','SolicitudController')->middleware('auth');
 Route::get('/mailable', function (Request $request) {
 
-
-    return new App\Mail\EmailSolicitud($request);
+return new App\Mail\EmailSolicitud($request);
 });
+
+Route::resource('pago','PagoController')->middleware('auth');
+Route::get('/mailable', function (Request $request) {
+
+return new App\Mail\EmailPago($request);
+});
+
 
 Route::resource('servicio', 'ServicioController');
 
