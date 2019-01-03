@@ -59,6 +59,7 @@ class SolicitudController extends Controller
         $solicitud->users_id = $userId;
         $solicitud->uuid= Uuid::generate()->string;
         $solicitud->documentos = json_encode($documentos);
+        $solicitud->status = 0;
         $solicitud->save();
 
     }
