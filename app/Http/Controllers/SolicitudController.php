@@ -63,7 +63,6 @@ class SolicitudController extends Controller
         $documento6 = substr($request['6'], 0 , strrpos($request['6'], "-"));
         $documento7 = substr($request['7'], 0 , strrpos($request['7'], "-"));
         $documentos = [$documento1, $documento2, $documento3, $documento4, $documento5, $documento6, $documento7];
-        echo json_encode($documentos);
         $solicitud = new Solicitud();
         $solicitud->users_id = $userId;
         $solicitud->uuid= Uuid::generate()->string;
