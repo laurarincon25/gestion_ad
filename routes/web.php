@@ -48,7 +48,11 @@ return new App\Mail\EmailPago($request);
 
 Route::resource('servicio', 'ServicioController');
 
-Route::resource('perfil', 'PerfilController');
+Route::get('users/{user}', 'UserController@edit')->name('users.edit');
+Route::put('users/{id}', 'UserController@update')->name('users.update');
+
+
+
 
 Route::get('foo', function () {
     return 'Hello World';
