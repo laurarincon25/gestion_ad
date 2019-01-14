@@ -10,7 +10,7 @@ class Documento extends Model
 
     public function carreras()
     {
-            return $this->belongsToMany('App\Carrera')->withPivot('precio');;
+            return $this->belongsToMany('App\Carrera')->withPivot('precio');
  
     }
 }

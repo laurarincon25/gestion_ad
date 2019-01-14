@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
- use App\Servicio;
+
 use Illuminate\Http\Request;
+use App\Servicio;
+use App\SolicitudServicio;
 
 class ServicioController extends Controller
 {
@@ -11,15 +13,10 @@ class ServicioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function __construct()
-    {
-       
-    }
-
     public function index()
     {
-       
+        $servicios = Servicio::all();
+        return view('servicio.servicio',['servicios' => $servicios]);
     }
 
     /**
@@ -27,6 +24,22 @@ class ServicioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function create(Request $request)
+    {
+        $servicios = [];
+        $very = true;
+        $i = 1;
+        while ($very == true) { 
+            if($request[$i] != ""){
+                array_push($servicios, $request[$i]);
+                $i+=1;
+            }else{
+               $very = false; 
+            }
+        }
+         $this->store($request, $servicios);
+         return redirect()->route('servicio.index')->with('status','Se ha enviado la solicitud');  
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -34,7 +47,17 @@ class ServicioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function store(Request $request, Array $servicios )
+    {
 
+        $solicitud = new SolicitudServicio();
+        $solicitud->user_id = $request->user;
+        $solicitud->servicios = json_encode($servicios);
+        $solicitud->observaciones = $request->observacion;
+        $solicitud->status = 0;
+        $solicitud->save();
+        
+    }
 
     /**
      * Display the specified resource.
