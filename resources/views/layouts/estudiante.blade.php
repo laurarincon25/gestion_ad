@@ -43,7 +43,8 @@
 
 		<div class="profile-sidebar">
 			<div class="profile-userpic">
-				<img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
+
+				<img style="height: 200px; width: 200px; background-color: #EFEFEF;margin: 5px;"class="card-img-top rounded-circle mx-auto d-block" src="{{url('storage/'.auth()->user()->avatar)}}"  alt="{{ Auth::user()->name }}">
 			</div>
 
 
@@ -68,7 +69,7 @@
 	@if(Auth::user()->hasRole('admin'))
     <div>Acceso como administrador</div>
     <li><a href="{{ url('admin') }}"><em class="fa fa-home">&nbsp;</em> Panel de control</a></li>
-
+   <li><a href="{{ route('users.edit', Auth::user()->id )}}"><em class="fa fa-user">&nbsp;</em> Perfil</a></li>
 @elseif(Auth::user()->hasRole('user'))
 <div>Acceso como Estudiante</div>
 			<li><a href="{{ route('estudiante') }}"><em class="fa fa-home">&nbsp;</em> Home</a></li>
@@ -77,21 +78,21 @@
 			<li><a href="{{ route('pago.index') }}"><em class="fa fa-bar-chart">&nbsp;</em> Pago de solicitud</a></li>
 			<li><a href="{{ route('programa.index') }}"><em class="fa fa-plus">&nbsp;</em> Solicitar Programas</a></li>
 			<li><a href="{{ route('sugerencias.create') }}"><em class="fa fa-comment">&nbsp;</em> Sugerencias &amp;  Quejas</a></li>
-			<li><a href="{{ route('perfil.create') }}"><em class="fa fa-user">&nbsp;</em> Perfil</a></li>
+			<li><a href="{{ route('users.edit', Auth::user()->id )}}"><em class="fa fa-user">&nbsp;</em> Perfil</a></li>
 @elseif(Auth::user()->hasRole('docente'))
             <div>Acceso como Docente</div>
             <li><a href="{{ route('estudiante') }}"><em class="fa fa-home">&nbsp;</em> Home</a></li>
 			<li><a href="{{ route('servicio.index') }}"><em class="fa fa-shopping-cart">&nbsp;</em>Solicitud Servicio</a></li>
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Ver estado de la Solicitud</a></li>
 			<li><a href="{{ route('sugerencias.create') }}"><em class="fa fa-comment">&nbsp;</em> Sugerencias &amp;  Quejas</a></li>
-			<li><a href="{{ route('perfil.create') }}"><em class="fa fa-user">&nbsp;</em> Perfil</a></li>
+			<li><a href="{{ route('users.edit', Auth::user()->id )}}"><em class="fa fa-user">&nbsp;</em> Perfil</a></li>
 @else
             <div>Acceso como Trabajador Administrativo</div>
             <li><a href="{{ route('estudiante') }}"><em class="fa fa-home">&nbsp;</em> Home</a></li>
 			<li><a href="widgets.html"><em class="fa fa-shopping-cart">&nbsp;</em> Servicio Solicitud</a></li>
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Ver estado de la Solicitud</a></li>
 			<li><a href="{{ route('sugerencias.create') }}"><em class="fa fa-comment">&nbsp;</em> Sugerencias &amp;  Quejas</a></li>
-			<li><a href="{{ route('perfil.create') }}"><em class="fa fa-user">&nbsp;</em> Perfil</a></li>
+			<li><a href="{{ route('users.edit', Auth::user()->id )}}"><em class="fa fa-user">&nbsp;</em> Perfil</a></li>
 
 @endif
 			<li>
