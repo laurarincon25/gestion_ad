@@ -22,7 +22,7 @@
                         </div>
                     @endif
 </div>
-		e<div class="row">
+		<div class="row">
         <div class="col-md-12">
             <div class="panel panel-default" style="padding:30px">
                 <div class="panel-heading">Solicitud de Servicios</div>
