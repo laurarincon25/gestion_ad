@@ -47,7 +47,7 @@ class PagoController extends Controller
     {
         if($request->hasFile('pago')){
          $file = $request->file('pago');
-         $nombre =time().$file->getClientOriginalName();
+         $nombre =time().'.'.$file->getClientOriginalName();
          $file->move(public_path().'/images/', $nombre);
 
        }
