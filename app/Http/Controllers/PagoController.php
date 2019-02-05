@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Webpatser\Uuid\Uuid;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\EmailPago;
  use App\Pago;
@@ -45,6 +47,17 @@ class PagoController extends Controller
      */
     public function store(Request $request)
     {
+       $validator = Validator::make($request->all(),[
+             'uuidSoli' => 'required',
+             'pago' => 'mimes:jpg,png,bmp,jpeg,pdf',
+             'email' => 'required|email',
+
+        ]);
+      if($validator->fails())
+        {
+            return Redirect::back()->withInput()->withErrors($validator);
+        }
+
         if($request->hasFile('pago')){
          $file = $request->file('pago');
          $nombre =time().'.'.$file->getClientOriginalName();

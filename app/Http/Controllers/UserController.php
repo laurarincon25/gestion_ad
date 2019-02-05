@@ -41,8 +41,8 @@ class UserController extends Controller
 
                     'name' => 'required|min:3',
                     'email' => 'required|email|unique:users,email,'.$User->id,
-                    'password' => 'min:6|confirmed',
-                    'password'  =>'min:6',
+                    'password' => 'confirmed',
+                    'password'  =>'',
                     'avatar' =>'image|mimes:jpg,png,bmp,jpeg',
                     )
         );
@@ -77,38 +77,5 @@ class UserController extends Controller
         return Redirect::route('users.edit', $id)->with('status','Datos Actualizados Exitosamente');
 
       }
-       /* if(Auth::user()->email == request->('email')) {
 
-    $this->validate($request(), [
-            'name' => 'required',
-          //  'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed'
-        ]);
-
-        $user->name = $request->get('name');
-       // $user->email = request('email');
-        $user->password = bcrypt($request->get('password'));
-
-        $user->save();
-
-        return back();
-
-    }
-    else{
-
-    $this->validate(request(), [
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed'
-        ]);
-
-        $user->name = $request->get('name');
-        $user->email = $request->get('email');
-        $user->password = bcrypt($request->get('password'));
-
-        $user->save();
-
-        return back();
-
-    }*/
     }

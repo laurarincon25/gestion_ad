@@ -26,6 +26,7 @@
                 <div class="col-md-8 col-md-offset-2">
                   <br>
                 @include('common.success')
+                 @include('common.errors')
 
 
 
