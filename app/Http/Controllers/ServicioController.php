@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Servicio;
 use App\SolicitudServicio;
+use App\Departamento;
+use App\Mail\EmailServicio;
 
 class ServicioController extends Controller
 {
@@ -16,7 +19,9 @@ class ServicioController extends Controller
     public function index()
     {
         $servicios = Servicio::all();
-        return view('servicio.servicio',['servicios' => $servicios]);
+        $departamentos = Departamento::all();
+        $idItems = [];
+        return view('servicio.servicio',['servicios' => $servicios, 'departamentos'=>$departamentos, 'items'=>$idItems]);
     }
 
     /**
@@ -26,19 +31,11 @@ class ServicioController extends Controller
      */
     public function create(Request $request)
     {
-        $servicios = [];
-        $very = true;
-        $i = 1;
-        while ($very == true) { 
-            if($request[$i] != ""){
-                array_push($servicios, $request[$i]);
-                $i+=1;
-            }else{
-               $very = false; 
-            }
-        }
-         $this->store($request, $servicios);
-         return redirect()->route('servicio.index')->with('status','Se ha enviado la solicitud');  
+         $solicitud = $request->all();
+         echo json_encode($solicitud);
+          $this->store($request, $solicitud);
+          Mail::to($request->email)->send(new EmailServicio($request));
+          return redirect()->route('servicio.index')->with('status','Se ha enviado la solicitud');  
     }
 
     /**
@@ -47,15 +44,15 @@ class ServicioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Array $servicios )
+    public function store(Request $request, Array $solicitud )
     {
-
-        $solicitud = new SolicitudServicio();
-        $solicitud->user_id = $request->user;
-        $solicitud->servicios = json_encode($servicios);
-        $solicitud->observaciones = $request->observacion;
-        $solicitud->status = 0;
-        $solicitud->save();
+      
+        $solicitudServicio = new SolicitudServicio();
+        $solicitudServicio->user_id = $request->user;
+        $solicitudServicio->servicios = json_encode($solicitud);
+        $solicitudServicio->observaciones = $request->observacion;
+        $solicitudServicio->status = 0;
+        $solicitudServicio->save();
         
     }
 

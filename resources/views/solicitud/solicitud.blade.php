@@ -57,7 +57,7 @@
 
                          <input type ="hidden" name="user" value="{{ Auth::user()->id }}" >
 
-                          <label> Correo:</label>
+                          <label for="email"> Correo:</label>
                             <input id="email" type="text" class="form-control" name="email" value="" placeholder="Email">
                             <button type="submit" class="btn btn-success">Solicitar</button>
 
