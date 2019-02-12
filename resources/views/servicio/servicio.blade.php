@@ -47,7 +47,7 @@
                             <div class="form-group" id="groupservs" style="display: none">
                                 <label for="servs">Seleccione el Servicio:</label>
                                 <select class="form-control" id="servs" name="servs" onChange="selected()">
-                                    <option value="" selected disabled> Seleccione un servivicio </option>
+                                    <option value="" selected disabled> Seleccione un servicio </option>
                                     @foreach($servicios as $servicio)
                                     <option value="servicio_{{$servicio->id}}"> {{$servicio->servicio}} </option>
                                     @endforeach
@@ -61,7 +61,7 @@
                                     <div class="check" style="float:left">
                                         <label for="ch-{{$item->id}}"
                                         name="item_{{$item->id}}_{{$servicio->servicio}}">{{$item->nombre}}</label>
-                                        <input class="form-control" id="{{$item->id}}" value="{{$item->nombre}}" name="{{$item->nombre}}" type="checkbox" onchange="onChecked({{$item->id}})">
+                                        <input  id="ch-{{$item->id}}" value="{{$item->nombre}}" name="{{$item->nombre}}" type="checkbox" onchange="onChecked('ch-{{$item->id}}')">
                                         
                                     </div>
 
@@ -80,7 +80,7 @@
                                 placeholder="Observaciones"></textarea>
                             </div>
                             <div class="form-group">
-                                    <label for="email"> Correo:</label>
+                                    <label for="email"> Email:</label>
                                     <input id="email" type="text" class="form-control" name="email" value="" placeholder="Email">        
                             </div>
                             
@@ -131,7 +131,7 @@
                 console.log(id);
                 var checkbox = document.getElementById(id);
                 var precio = checkbox.value;
-                if(checkbox.name == "item 2") {
+                if(checkbox.name === "Articulos de oficina") {
                     var cant = document.getElementById("cant");
                     if(checkbox.checked == true) {
                          cant.style.display = "block";
