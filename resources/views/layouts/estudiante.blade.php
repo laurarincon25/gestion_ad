@@ -69,6 +69,7 @@
 	@if(Auth::user()->hasRole('admin'))
     <div>Acceso como administrador</div>
     <li><a href="{{ url('admin') }}"><em class="fa fa-home">&nbsp;</em> Panel de control</a></li>
+    <li><a href="{{ url('reportesugerencia') }}"><em class="fa fa-comment">&nbsp;</em> Reporte de Sugerencias y Quejas</a></li>
    <li><a href="{{ route('users.edit', Auth::user()->id )}}"><em class="fa fa-user">&nbsp;</em> Perfil</a></li>
 @elseif(Auth::user()->hasRole('user'))
 <div>Acceso como Estudiante</div>
