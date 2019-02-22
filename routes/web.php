@@ -26,6 +26,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('sugerencias','SugerenciaController')->middleware('auth');
 
+Route::get('reportesugerencia', 'ReporteSugerenciaController@index')->name('reportesugerencia');
+
+Route::get('pdfreportesugerencia', 'ReporteSugerenciaController@pdf')->name('pdfreportesugerencia');
+Route::get('excelreportesugerencia', 'ReporteSugerenciaController@excel')->name('excelreportesugerencia');
 
 Route::get('/estudiante', 'EstudianteController@index')->name('estudiante');
 
@@ -50,7 +54,6 @@ Route::resource('servicio', 'ServicioController');
 
 Route::get('users/{user}', 'UserController@edit')->name('users.edit');
 Route::put('users/{id}', 'UserController@update')->name('users.update');
-
 
 
 
