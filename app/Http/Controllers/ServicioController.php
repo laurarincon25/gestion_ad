@@ -46,11 +46,15 @@ class ServicioController extends Controller
     public function store(Request $request, Array $solicitud )
     {
         $tipo = $request->except('_token','user','deps','servs','observacion','email');
+        
         $tipoStr = "";
-        foreach ($tipo as $value) {
-         $tipoStr .= ' '. key($tipo).','.' ';
-            next($tipo);
-            }
+
+    foreach ($tipo as $value) {
+        if($value!= null){
+            $tipoStr .= ' '. str_replace( '_' , ' ' , key($tipo)).','.' ';
+        }
+        next($tipo);  
+    }
         $solicitudServicio = new SolicitudServicio();
         $solicitudServicio->user_id = $request->user;
         $solicitudServicio->departamento = $solicitud['deps'];
