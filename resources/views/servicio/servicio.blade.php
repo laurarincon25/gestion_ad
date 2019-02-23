@@ -112,44 +112,6 @@
     </div>
 </div>
 
-                                @foreach($servicios as $servicio)
-                                
-                                <div class="checkbox-content" id="servicio_{{$servicio->id}}" style="display: none;">
-                                    @foreach($servicio->items as $item)
-                                    <div class="check" style="float:left">
-                                        <label for="ch-{{$item->id}}"
-                                        name="item_{{$item->id}}_{{$servicio->servicio}}">{{$item->nombre}}</label>
-                                        <input  id="ch-{{$item->id}}" value="{{$item->nombre}}" name="{{$item->nombre}}" type="checkbox" onchange="onChecked('ch-{{$item->id}}')">
-                                        
-                                    </div>
-
-                                    @endforeach
-                                </div>
-                                @endforeach
-                            </div>
-                            <div class="form-group">
-                                    <input class ="form-control" id="cant" name="cant" type="number" placeholder="Cantidad" style="display: none">
-                            </div>
-                            <div class="form-group">
-                                <input type="hidden" name="user" value="{{ Auth::user()->id }}">
-                        
-                                <label for="observacion"> Observaciones:</label>
-                                <textarea id="observacion" class="form-control" name="observacion" value=""
-                                placeholder="Observaciones"></textarea>
-                            </div>
-                            <div class="form-group">
-                                    <label for="email"> Email:</label>
-                                    <input id="email" type="text" class="form-control" name="email" value="" placeholder="Email">        
-                            </div>
-                            
-                            <button type="submit" class="btn btn-success">Solicitar</button>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
 
 
         @endsection
