@@ -16,7 +16,9 @@ class CreateSolicitudServiciosTable extends Migration
         Schema::create('solicitud_servicios', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->json('servicios');
+            $table->string('departamento');
+            $table->string('servicios');
+            $table->string('tiposerv');
             $table->string('observaciones');
             $table->integer('status');
             $table->timestamps();

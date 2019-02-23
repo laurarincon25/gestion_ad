@@ -32,7 +32,7 @@ class EmailServicio extends Mailable
           // obtiene la ultima solicitud del usuario
           $this->solicitud = $this->solicitudes->last();
           
-          $this->servicios = json_decode($this->solicitud->servicios);
+          $this->servicios = $request->except('_token','user','email');
          
     }
 

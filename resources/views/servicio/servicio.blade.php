@@ -1,7 +1,17 @@
 @extends('layouts.estudiante')
 
 @section('content')
-
+<style>
+.col-check {
+    width: 20%;
+    margin: 0;
+    float: left;
+}
+.col-cant {
+    width: 6%;
+    float: left;
+}
+</style>
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
     <!--BARRA SOLICITUD-->
@@ -39,7 +49,7 @@
                                 <select class="form-control" id="deps" name="deps" onChange="depSelected()">
                                     <option value="" selected disabled> Seleccione un departamento </option>
                                     @foreach($departamentos as $departamento)
-                                    <option value="departamento{{$departamento->id}}"> {{$departamento->nombre}}
+                                    <option value="{{$departamento->nombre}}"> {{$departamento->nombre}}
                                     </option>
                                     @endforeach
                                 </select>
@@ -49,48 +59,54 @@
                                 <select class="form-control" id="servs" name="servs" onChange="selected()">
                                     <option value="" selected disabled> Seleccione un servicio </option>
                                     @foreach($servicios as $servicio)
-                                    <option value="servicio_{{$servicio->id}}"> {{$servicio->servicio}} </option>
+                                    <option value="{{$servicio->servicio}}"> {{$servicio->servicio}} </option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
-                                @foreach($servicios as $servicio)
-                                
-                                <div class="checkbox-content" id="servicio_{{$servicio->id}}" style="display: none;">
-                                    @foreach($servicio->items as $item)
-                                    <div class="check" style="float:left">
-                                        <label for="ch-{{$item->id}}"
-                                        name="item_{{$item->id}}_{{$servicio->servicio}}">{{$item->nombre}}</label>
-                                        <input  id="ch-{{$item->id}}" value="{{$item->nombre}}" name="{{$item->nombre}}" type="checkbox" onchange="onChecked('ch-{{$item->id}}')">
-                                        
-                                    </div>
-
-                                    @endforeach
-                                </div>
-                                @endforeach
-                            </div>
-                            <div class="form-group">
-                                    <input class ="form-control" id="cant" name="cant" type="number" placeholder="Cantidad" style="display: none">
-                            </div>
-                            <div class="form-group">
-                                <input type="hidden" name="user" value="{{ Auth::user()->id }}">
-                        
-                                <label for="observacion"> Observaciones:</label>
-                                <textarea id="observacion" class="form-control" name="observacion" value=""
-                                placeholder="Observaciones"></textarea>
-                            </div>
-                            <div class="form-group">
-                                    <label for="email"> Email:</label>
-                                    <input id="email" type="text" class="form-control" name="email" value="" placeholder="Email">        
-                            </div>
-                            
-                            <button type="submit" class="btn btn-success">Solicitar</button>
-
-                        </form>
-                    </div>
+            @foreach($servicios as $servicio)
+            @if ($servicio->id === 4)
+            <div class="checkbox-content" id="{{$servicio->servicio}}" style="display: none;">
+            @foreach($servicio->items as $item)
+             <div class="row">
+            <div class="col-sm-6">
+            <label for="{{$item->id}}"
+            name="item_{{$item->id}}_{{$servicio->servicio}}">{{$item->nombre}}</label>
+            </div> 
+            <div class="col-lg-4">  
+            <input style="margin-right: auto;"  class ="" id="{{$item->id}}" name="{{$item->nombre}}" type="number" placeholder="Cantidad">   
+         </div>           
                 </div>
-            </div>
+                 @endforeach
+             @else
+            <div class="checkbox-content" id="{{$servicio->servicio}}" style="display: none;">
+                @foreach($servicio->items as $item)
+            <div class="check" style="float:left">
+                <label for="ch-{{$item->id}}" name="item_{{$item->id}}_{{$servicio->servicio}}">{{$item->nombre}}</label>
+                <input  id="ch-{{$item->id}}" value="{{$item->nombre}}" name="{{$item->nombre}}" type="checkbox">
+                                        
+                </div>
+             @endforeach         
+        @endif
+    </div>
+@endforeach
+ </div>
+        <div class="form-group">
+        <input type="hidden" name="user" value="{{ Auth::user()->id }}">
+        <label for="observacion"> Observaciones:</label>
+        <textarea id="observacion" class="form-control" name="observacion" value="" placeholder="Observaciones"></textarea>
         </div>
+        <div class="form-group">
+        <label for="email"> Email:</label>
+        <input id="email" type="text" class="form-control" name="email" value="" placeholder="Email">        
+        </div>
+                                    
+        <button type="submit" class="btn btn-success">Solicitar</button>
+        </form>
+        </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -127,21 +143,6 @@
 
             }
 
-            function onChecked(id) {
-                console.log(id);
-                var checkbox = document.getElementById(id);
-                var precio = checkbox.value;
-                if(checkbox.name === "Articulos de oficina") {
-                    var cant = document.getElementById("cant");
-                    if(checkbox.checked == true) {
-                         cant.style.display = "block";
-                    }
-                    else{
-                        cant.style.display = "none";
-                    }
-                   
-                }
-                console.log('checkbox',checkbox.checked,'precio',precio);
-            }
+           
         </script>
         @endsection

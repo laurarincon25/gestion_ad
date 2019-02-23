@@ -8,20 +8,29 @@ use App\Servicio;
 use App\SolicitudServicio;
 use App\Departamento;
 use App\Mail\EmailServicio;
+use App\Estadoservicio;
+use Illuminate\Support\Facades\Redirect;
+use DB;
 
-class ServicioController extends Controller
+
+class EstadoservicioController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $servicios = Servicio::all();
-        $departamentos = Departamento::all();
-        $idItems = [];
-        return view('servicio.servicio',['servicios' => $servicios, 'departamentos'=>$departamentos, 'items'=>$idItems]);
+       
+        $solicitud= SolicitudServicio::All();
+        return view('servicio.estadoserv')->with(['solicitud' => $solicitud ]);
     }
 
     /**
@@ -31,10 +40,7 @@ class ServicioController extends Controller
      */
     public function create(Request $request)
     {
-         $solicitud = $request->except('_token', 'email','user');
-          $this->store($request, $solicitud);
-          Mail::to($request->email)->send(new EmailServicio($request));
-          return redirect()->route('servicio.index')->with('status','Se ha enviado la solicitud');  
+           
     }
 
     /**
@@ -45,20 +51,8 @@ class ServicioController extends Controller
      */
     public function store(Request $request, Array $solicitud )
     {
-        $tipo = $request->except('_token','user','deps','servs','observacion','email');
-        $tipoStr = "";
-        foreach ($tipo as $value) {
-         $tipoStr .= ' '. key($tipo).','.' ';
-            next($tipo);
-            }
-        $solicitudServicio = new SolicitudServicio();
-        $solicitudServicio->user_id = $request->user;
-        $solicitudServicio->departamento = $solicitud['deps'];
-        $solicitudServicio->servicios = $solicitud['servs'];
-        $solicitudServicio->tiposerv = $tipoStr;
-        $solicitudServicio->observaciones = $request->observacion;
-        $solicitudServicio->status = 0;
-        $solicitudServicio->save();    
+      
+        
     }
 
     /**
@@ -90,9 +84,9 @@ class ServicioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update()
     {
-        //
+        
     }
 
     /**

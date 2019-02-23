@@ -22,6 +22,10 @@ background-color: #66ccff;
 text-align: center;
 }
 
+td{
+text-align: center;
+}
+
 tr:nth-child(even) {
   background-color: #dddddd;
 }
@@ -44,35 +48,45 @@ tr:nth-child(even) {
   
                <h2 style="text-align: center">Tabla de solicitudes de servicios <p><small>Podras observar los estados de tus solicitudes realizadas</small></p></h2>
 
+
              <table>
+               <thead>
                  <tr>
                     <th>Servicio</th>
-                    <th>Tipo de servicio</th>
+                    <th>Tipo de Servicio</th>
                     <th>Fecha</th>
                     <th>Estado</th>
                  </tr>
-                 <tr>
-                    <td>Electricidad</td>
-                    <td>Falla de Iluminacion</td>
-                    <td>2019-02-12</td>
-                    <td>Pendiente</td>
-                 </tr>
-                 <tr>
-                    <td>Refrigeracion</td>
-                    <td>Falla de A/A de ventana</td>
-                    <td>2019-02-10</td>
-                    <td>Aprobada</td>
-                 </tr>
-                 <tr>
-                    <td>Infraestructura</td>
-                    <td>Reparacion de baño</td>
-                    <td>2019-02-08</td>
-                    <td>Rechazada</td>
-                 </tr>
+               </thead>
 
-              </table>
+               <tbody>
+                 @foreach($solicitud as $sol)
+                 <tr>
+                 <td>{{$sol->servicios}}</td>
+                 <td>{{$sol->tiposerv}}</td>
+                 <td>{{$sol->created_at}}</td>
+                 @switch($sol->status)
+                     @case(0)
+                     <td>Pendiente</td>
+                     @break
+                    @case(1)
+                     <td>Aceptada</td>
+                     @break
+                    @case(2)
+                     <td>Rechazada</td>
+                    @break
+                    @default
+                    Default case...
+                    @endswitch
+                 </tr>
+                 @endforeach
+               </tbody>
+
+            </table>
 
           </div>
+
+       
 
       </div>
 
