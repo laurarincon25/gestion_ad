@@ -31,8 +31,7 @@ class ServicioController extends Controller
      */
     public function create(Request $request)
     {
-         $solicitud = $request->all();
-         echo json_encode($solicitud);
+         $solicitud = $request->except('_token', 'email','user');
           $this->store($request, $solicitud);
           Mail::to($request->email)->send(new EmailServicio($request));
           return redirect()->route('servicio.index')->with('status','Se ha enviado la solicitud');  
@@ -46,14 +45,20 @@ class ServicioController extends Controller
      */
     public function store(Request $request, Array $solicitud )
     {
-      
+        $tipo = $request->except('_token','user','deps','servs','observacion','email');
+        $tipoStr = "";
+        foreach ($tipo as $value) {
+         $tipoStr .= ' '. key($tipo).','.' ';
+            next($tipo);
+            }
         $solicitudServicio = new SolicitudServicio();
         $solicitudServicio->user_id = $request->user;
-        $solicitudServicio->servicios = json_encode($solicitud);
+        $solicitudServicio->departamento = $solicitud['deps'];
+        $solicitudServicio->servicios = $solicitud['servs'];
+        $solicitudServicio->tiposerv = $tipoStr;
         $solicitudServicio->observaciones = $request->observacion;
         $solicitudServicio->status = 0;
-        $solicitudServicio->save();
-        
+        $solicitudServicio->save();    
     }
 
     /**
