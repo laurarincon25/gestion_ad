@@ -14,7 +14,7 @@ Usted ha hecho una solicitud de servicios :
 @if(key($servicios) == 'observacion')
 <li><h3>Observación</h3>{{$servicio}}</li>
 @else
-<li><h3>Tipo de servicio</h3>{{$servicio}}</li>
+<li><h3>{{str_replace( '_' , ' ' , key($servicios))}}</h3>{{$servicio}}</li>
 @endif
 
 @endif
