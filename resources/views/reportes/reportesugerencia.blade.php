@@ -61,24 +61,56 @@
         </tbody>
     </table>
     </div>
-    <hr>
-    <p>
-       <a href="{{ url('pdfreportesugerencia') }}" class="btn btn-sm btn-primary">
-            Descargar Reporte en PDF
-        </a>
-
-        <a href="{{ url('excelreportesugerencia') }}" class="btn btn-sm btn-primary">
-            Descargar Reporte en Excel
-        </a>
-    </p>
-
-
-
-
 {{Form::close()}}
+
+<div class="col-md-12">
+<form id="fompdf" method="GET" action="pdfreportesugerencia" >
+<input type="hidden" name="fechaInicialpdf" id="fechaInicialpdf">
+<input type="hidden" name="fechaFinalpdf" id="fechaFinalpdf">
+<button type="submit" class="btn btn-success">Descargar Reporte en PDF</button>
+</form>
+
+<script type="text/javascript">
+
+  $('#fechaInicial').on('change', function(e){
+    var fechaInicial = $("input[name=fechaInicial]").val();
+     $('#fechaInicialpdf').val(fechaInicial);
+     var fechaFinal = $("input[name=fechaFinal]").val();
+     $('#fechaFinalpdf').val(fechaFinal);
+   });
+
+    $('#fechafinal').on('change', function(e){
+    var fechaInicial = $("input[name=fechaInicial]").val();
+     $('#fechaInicialpdf').val(fechaInicial);
+     var fechaFinal = $("input[name=fechaFinal]").val();
+     $('#fechaFinalpdf').val(fechaFinal);
+   });
+</script>
+<form id="fompdf" method="GET" action="excelreportesugerencia" >
+<input type="hidden" name="fechaInicialexcel" id="fechaInicialexcel">
+<input type="hidden" name="fechaFinalpdfexcel" id="fechaFinalexcel">
+<button type="submit" class="btn btn-success">Descargar Reporte en Excel</button>
+</form>
+
+<script type="text/javascript">
+
+  $('#fechaInicial').on('change', function(e){
+    var fechaInicial = $("input[name=fechaInicial]").val();
+     $('#fechaInicialexcel').val(fechaInicial);
+     var fechaFinal = $("input[name=fechaFinal]").val();
+     $('#fechaInicialexcel').val(fechaFinal);
+   });
+
+    $('#fechafinal').on('change', function(e){
+    var fechaInicial = $("input[name=fechaInicial]").val();
+     $('#fechaFinalpdfexcel').val(fechaInicial);
+     var fechaFinal = $("input[name=fechaFinal]").val();
+     $('#fechaFinalpdfexcel').val(fechaFinal);
+   });
+</script>
+</div>
 </div>
 
 </div>
 </div>
-
 @endsection
