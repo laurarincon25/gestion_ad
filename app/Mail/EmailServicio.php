@@ -33,6 +33,7 @@ class EmailServicio extends Mailable
           $this->solicitud = $this->solicitudes->last();
           
           $this->servicios = $request->except('_token','user','email');
+
          
     }
 

@@ -4,6 +4,7 @@
 Usted ha hecho una solicitud de servicios :
 
 @foreach ($servicios as $servicio)
+
 @if($servicio != null)
 @if(key($servicios) == 'deps')
 <li><h3>Departamento:</h3>{{$servicio}}</li>
@@ -20,6 +21,7 @@ Usted ha hecho una solicitud de servicios :
 
 @endif
 <span style="display: none">{{next($servicios)}}</span>
+
 @endforeach
 
 Gracias por usar nuestro servicio<br>

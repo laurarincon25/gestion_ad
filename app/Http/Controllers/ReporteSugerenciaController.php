@@ -50,22 +50,22 @@ return view('reportes.reportesugerencia', compact('reportesugerencia'));*/
       public function pdf(Request $request)
 
     {
-
-        $fechaInicial = $request->fechaInicial;
-         $fechaFinal = $request->fechaFinal;
+       
+        $fechaInicial = $request->fechaInicialpdf;
+         $fechaFinal = $request->fechaFinalpdf;
 
 
 
     //creams 2 objetos tipo carbon con las fechas
     $f1 = new \Carbon\Carbon($fechaInicial);
     $f2 = new \Carbon\Carbon($fechaFinal);
-
+    
     //aplicamos Eloquent
     $reportesugerencias = Sugerencia::whereDate('created_at','>=',$f1 )
     ->whereDate('created_at','<=',$f2)
     ->get();
-
-        $view = \View::make('pdf.pdfreportesugerencia')->with('reportesugerencias', $reportesugerencias)->render();
+    //dd($reportesugerencias);
+       $view = \View::make('pdf.pdfreportesugerencia')->with('reportesugerencias', $reportesugerencias)->render();
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($view);
         return $pdf->stream('listado '.' .pdf');

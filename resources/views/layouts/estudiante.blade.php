@@ -15,6 +15,7 @@
 
 <!--Custom Font-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	<script src="{{ asset('js/jquery.min.js') }}"></script>
 </head>
 
 <body>
@@ -143,6 +144,7 @@
 </div>
 {{-- 
 <script src="js/jquery-1.11.1.min.js"></script>
+
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/chart.min.js"></script>
 	<script src="js/chart-data.js"></script>
@@ -151,7 +153,7 @@
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/custom.js"></script> --}}
 @yield('scripts')
-<script src="{{ asset('js/jquery.min.js') }}"></script>
+
 	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 	<script src="{{ asset('js/custom.js') }}"></script>
 
