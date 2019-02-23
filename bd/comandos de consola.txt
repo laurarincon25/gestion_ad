@@ -1,5 +1,5 @@
 Hacer un backup
-pg_dump.exe -h localhost -p 5432 -U postgres -F c -v -d admgestion -f bdadm2.sql
+pg_dump.exe -h localhost -p 5432 -U postgres -F c -v -d admgestion -f bdadm3.sql
 
 Restaurar backup
 pg_restore -C -d admgestion -U postgres bdadm2.sql
